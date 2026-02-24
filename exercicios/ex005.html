@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        h2{
+            font: 2em Arial;
+            text-align: center;
+        }
+        input#texto{
+            height: 25px;
+            width: 200px;
+        }
+
+        button#botao{
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 id="resultado"></h2>
+        <input type="text" id="texto">
+        <button id="botao">
+            Clique...
+        </button>
+    </div>
+
+    <script>
+        var input = document.querySelector("#texto")
+        var botao = document.querySelector("#botao")
+        var h2 = document.querySelector("#resultado")
+
+        botao.addEventListener("click", function(){
+            h2.textContent = input.value
+        })
+    </script>
+</body>
+</html>

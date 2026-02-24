@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            height: 30px;
+            width: 30px;
+            margin: 20px;
+        }
+
+        p{
+            font: italic bolder 2em Arial;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="subtrair">-</button>
+    <p id="numero">0</p>
+    <button id="soma">+</button>
+    <p id="mensagem"></p>
+
+    <script>
+        let numero = document.querySelector("#numero")
+        let subtrair = document.querySelector("#subtrair")
+        let soma = document.querySelector("#soma")
+        let mensagem = document.querySelector("#mensagem")
+        let contador = 0
+
+        subtrair.addEventListener("click", function(){
+            if(contador > 0){
+                contador --
+            }
+            numero.textContent = contador
+
+            if(contador === 0){
+                mensagem.textContent = "Mínimo Atingido"
+            }
+
+            if(contador > 0 && contador < 10){
+            mensagem.textContent =  ""
+            }
+        })
+
+        soma.addEventListener("click", function(){
+            if(contador < 10){
+                contador ++
+            }
+            numero.textContent = contador
+
+            if(contador === 10){
+                mensagem.textContent = ("Máximo atingido")
+            }
+
+            if(contador > 0 && contador < 10){
+            mensagem.textContent =  ""
+            }
+        })
+
+    </script>
+</body>
+</html>

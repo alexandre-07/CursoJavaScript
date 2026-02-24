@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input{
+            height: 50px;
+            width: 300px;
+        }
+        
+        p{
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="Clique" id="botao">
+        <p></p>
+    </div>
+
+    <script>
+        let botao = document.querySelector("#botao")
+        let paragrafo = document.querySelector("p")
+        botao.addEventListener("click", function(){
+            if (paragrafo.innerText === ""){
+                paragrafo.innerText = "Você clicou no botão"
+            } else{
+                paragrafo.innerText = ""
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        div > input{
+            transition:background-color 0.5s;
+            
+        }
+
+        div>input:hover{
+            background-color: rgb(71, 71, 183);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="Clique..." id="botao">
+    </div>
+
+    <script>
+        let btn = document.querySelector("#botao")
+        btn.addEventListener("click", function(){
+            alert("Olá")
+        })
+    </script>
+</body>
+</html>

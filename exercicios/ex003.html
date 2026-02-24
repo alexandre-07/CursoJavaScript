@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1{
+            cursor: pointer;
+        }
+
+        input{
+            height: 50px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Mudar Cor de Fundo" id="background">
+
+    <script>
+        let corFundo = document.querySelector("#background")
+        let body = document.body
+        corFundo.addEventListener("click", function(){
+            if (body.style.backgroundColor === "white"){
+                body.style.backgroundColor = "blue"
+            } else {
+                body.style.backgroundColor = "white"
+            }
+        })
+    </script>
+</body>
+</html>

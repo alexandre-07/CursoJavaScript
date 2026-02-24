@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div{
+            background-color: rgb(57, 149, 214);
+            height: 250px;
+            width: 300px;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+
+        input{
+            margin-top: 10px; 
+        }
+
+        ul{
+            font: italic bold 20px Arial;
+            list-style: square;
+            text-align: left;
+        }
+
+        .concluido{
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .botao-remover{
+            margin-left: 10px;
+            cursor: pointer;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 2px 6px;
+            transition: background-color 0.5s;
+        }
+
+        .botao-remover:hover{
+            background-color: rgb(95, 0, 0);
+        }
+
+        .botao-remover:active{
+            transform: scale(0.9)
+        }
+    </style>    
+</head>
+<body>
+    <div>
+        <div id="output">
+            <input type="text" id="entrada">
+            <button id="add">Adicionar</button>
+            <ul id="lista">
+            
+            </ul>
+        </div>
+
+        
+    </div>
+
+    <script>
+        let entrada = document.querySelector("#entrada")
+        let adicionar = document.querySelector("#add")
+        let lista = document.querySelector("#lista")
+
+        adicionar.addEventListener("click", function(){
+
+            if (entrada.value === "") return;
+
+            let item = document.createElement("li")
+            let botaoX = document.createElement("button")
+
+            botaoX.classList.add("botao-remover")
+            botaoX.textContent = "X"
+
+            botaoX.addEventListener("click", function(){
+                item.remove()
+            })
+
+            item.addEventListener("click", function(){
+                item.classList.toggle("concluido")
+            })
+
+            item.textContent = entrada.value
+            item.appendChild(botaoX)
+
+            lista.appendChild(item)
+            entrada.value = ""
+
+        })
+
+        
+    </script>
+</body>
+</html>

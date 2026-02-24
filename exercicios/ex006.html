@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            margin: 20px;
+            padding: 10px;
+        }
+
+        p{
+            font:italic bolder 2em  Arial;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="subtracao">
+        -
+    </button>
+    <p id="numero">0</p>
+    <button id="soma">
+        +
+    </button>
+
+    <script>
+        let subtracao = document.querySelector("#subtracao")
+        let soma = document.querySelector("#soma")
+        let numero = document.querySelector("#numero")
+        let contador = 0
+
+        subtracao.addEventListener("click", function(){
+            contador --
+            numero.textContent = contador
+        })
+
+        soma.addEventListener("click", function(){
+            contador ++
+            numero.textContent = contador
+        })
+    </script>
+</body>
+</html>
