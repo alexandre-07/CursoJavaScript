@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1{
+            font: bolder 2em Arial;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="contador">0</h1>
+
+    <script>
+        let contador = document.querySelector("#contador")
+        let numero = 0
+        let intervalo
+        
+        function atualizarCor(){
+            if(numero % 2 == 0){
+                contador.style.color = "blue"
+            } else{
+                contador.style.color = "orange"
+            }
+        }
+
+        contador.addEventListener("click", function(){
+            numero++
+            contador.textContent = numero
+            atualizarCor()
+        })
+
+        contador.addEventListener("dblclick", function(){
+            numero = 0
+            contador.textContent = numero
+            atualizarCor()
+        })
+
+        contador.addEventListener("mousedown", function(){
+            if(!intervalo){
+                intervalo = setInterval(function(){
+                    numero++
+                    contador.textContent = numero
+                    atualizarCor()
+                    if(numero >= 20){
+                        clearInterval(intervalo)
+                        intervalo =  null
+                    }
+                }, 100)
+            }
+        })
+
+        contador.addEventListener("mouseup", function(){
+            clearInterval(intervalo)
+            intervalo = null
+            atualizarCor()
+        })
+
+    </script>
+</body>
+</html>
