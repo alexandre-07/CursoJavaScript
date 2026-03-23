@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;    
+        }
+
+        button{
+            padding: 10px;
+            margin: 10px;
+            font-size: 1em;
+            background-color: gr;
+        }
+
+        p{
+            font: italic bolder 2em Arial;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>   
+        
+        <button id="subtracao">-</button>
+        <p id="numero">0</p>
+        <button id="soma">+</button>
+        <button id="reset">reset</button>  
+
+    <script>
+        let subtracao = document.querySelector("#subtracao")
+        let soma = document.querySelector("#soma")
+        let numero = document.querySelector("#numero")
+        let reset = document.querySelector("#reset")
+        let contador = 0
+
+        function atualizar(){
+            numero.textContent = contador
+            if (contador > 0){
+                numero.style.color = "green"
+            } else if (contador < 0){
+                numero.style.color = "red"
+            } else{
+                numero.style.color = "black"
+            }
+
+            if (contador == 9){
+                soma.disabled = true
+            } else{
+                soma.disabled = false
+                
+            } if (contador == -9){
+                subtracao.disabled = true
+            }else {   
+                subtracao.disabled = false
+            }
+        }
+
+        subtracao.addEventListener("click", function(){
+            contador --
+            atualizar()
+            if (contador < -9){
+                contador ++
+            }
+        })
+
+        soma.addEventListener("click", function(){
+            contador ++
+            atualizar()
+            if (contador > 9){
+                contador --
+            }
+        })
+
+        reset.addEventListener("click", function(){
+            contador = 0
+            atualizar()
+        })
+
+    </script>
+</body>
+</html>

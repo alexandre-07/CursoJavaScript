@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Cor de Fundo</title>
+    <style>
+
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+            flex-direction: column;  
+        }
+
+        h1{
+            font: italic bolder 1em Arial;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="texto">Clique no botão</h1>
+        <button id="btn">Mudar Cor</button>
+    </div>
+
+    <script>
+        let botao = document.querySelector("#btn")
+        let texto = document.querySelector("#texto")
+        
+
+        botao.addEventListener("click", function(){
+
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+
+            document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+            texto.textContent = `rgb(${r},${g},${b})`
+
+            let brilho = (r*299 + g*587 + b*114) / 1000
+
+            texto.style.color = brilho < 128 ? "white" : "black"
+        })
+    </script>
+</body>
+</html>
