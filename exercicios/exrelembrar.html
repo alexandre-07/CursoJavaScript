@@ -10,21 +10,25 @@
             height: 100vh;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
-        h1{
+        h1, p{
             font: bolder 2em Arial;
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
     <h1 id="contador">0</h1>
+    <p id="status"></p>
 
     <script>
         let contador = document.querySelector("#contador")
         let numero = 0
         let intervalo
+        let status = document.querySelector("#status")
         
         function atualizarCor(){
             if(numero % 2 == 0){
@@ -35,7 +39,9 @@
         }
 
         contador.addEventListener("click", function(){
+            if(numero < 20){
             numero++
+        }
             contador.textContent = numero
             atualizarCor()
         })
@@ -47,22 +53,32 @@
         })
 
         contador.addEventListener("mousedown", function(){
+            if(numero < 20){
+                status.textContent = "CONTANDO"
+            }
             if(!intervalo){
                 intervalo = setInterval(function(){
-                    numero++
-                    contador.textContent = numero
-                    atualizarCor()
-                    if(numero >= 20){
+                    if(numero < 20){
+                        numero++
+                        contador.textContent = numero
+                        atualizarCor()
+                    } else{
+                        status.textContent = "LIMITE ATINGIDO"
                         clearInterval(intervalo)
-                        intervalo =  null
-                    }
+                        intervalo = null
+                    }       
                 }, 100)
             }
         })
 
         contador.addEventListener("mouseup", function(){
-            clearInterval(intervalo)
-            intervalo = null
+            if(intervalo){
+                clearInterval(intervalo)
+                intervalo = null
+            }
+            if(numero < 20){
+                status.textContent = "PARADO"
+            }
             atualizarCor()
         })
 
